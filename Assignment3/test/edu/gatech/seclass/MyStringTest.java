@@ -26,9 +26,10 @@ public class MyStringTest {
 		assertEquals("lkvwlsbttrthncnsnnts", mystring.getConsonants());
 	}
 
-	@Test
+	@Test(expected=Error.class)
 	public void testGetConsonants2() {
-        fail("Not yet implemented");
+       mystring.setString("");
+       assertEquals("null", mystring.getConsonants());
 	}
 
 	@Test
