@@ -26,20 +26,22 @@ public class MyStringTest {
 		assertEquals("lkvwlsbttrthncnsnnts", mystring.getConsonants());
 	}
 
-	@Test(expected=Error.class)
+	@Test
 	public void testGetConsonants2() {
-       mystring.setString("");
-       assertEquals("null", mystring.getConsonants());
+       mystring.setString("aeiou");
+       assertEquals("", mystring.getConsonants());
 	}
 
 	@Test
 	public void testGetConsonants3() {
-        fail("Not yet implemented");
-	}
+	       mystring.setString("Marius is very scary");
+	       assertEquals("mrssvryscry", mystring.getConsonants());
+		}
 
 	@Test
 	public void testGetConsonants4() {
-        fail("Not yet implemented");
+		 mystring.setString("Marius is very scary");
+	       assertNotNull("Mrssvryscry", mystring.getConsonants());
 	}
 
 	@Test
@@ -50,17 +52,26 @@ public class MyStringTest {
 
 	@Test
 	public void testNumberOfConsonants2() {
-        fail("Not yet implemented");
+		mystring.setString("Marius");
+		int total = mystring.numberOfConsonants()+2;
+	       assertEquals(5, total);
 	}
 
-	@Test
+	@Test(expected = ArithmeticException.class)
 	public void testNumberOfConsonants3() {
-        fail("Not yet implemented");
+		mystring.setString("Marius");
+		int total = mystring.numberOfConsonants()/0;
+		System.out.print(total);
+	       
+	       
 	}
 
 	@Test
 	public void testNumberOfConsonants4() {
-        fail("Not yet implemented");
+		mystring.setString("Marius");
+		int total = mystring.numberOfConsonants()-99;
+		int total2 = total+96;
+	       assertEquals(0, total2);
 	}
 
 	@Test
@@ -69,19 +80,23 @@ public class MyStringTest {
 		assertEquals('e', mystring.getCharacter(16));
 	}
 
-	@Test
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void testGetCharacter2() {
-        fail("Not yet implemented");
+       mystring.setString("Marius");
+       mystring.getCharacter(8);
 	}
 
 	@Test
 	public void testGetCharacter3() {
-        fail("Not yet implemented");
+		 mystring.setString("Marius is the greatest");
+	       assertSame('m',mystring.getCharacter(1));
+	       
 	}
 
 	@Test
 	public void testGetCharacter4() {
-        fail("Not yet implemented");
+		 mystring.setString("Marius is the greatest");
+	       assertSame('s',mystring.getCharacter(6));
 	}
 
 	@Test
@@ -91,18 +106,25 @@ public class MyStringTest {
 		assertEquals("I Like vOWELS bETTER Than Consonants", mystring.getString());	
 	}
 
-	@Test
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void testFlipCaseInSubstring2() {
-        fail("Not yet implemented");
+		mystring.setString("Pizza");
+		mystring.flipCaseInSubstring(0, 35);
+		
 	}
 
 	@Test
 	public void testFlipCaseInSubstring3() {
-        fail("Not yet implemented");
+		mystring.setString("Pizza");
+		mystring.flipCaseInSubstring(0, 1);
+		assertEquals("pI", mystring.getString());
 	}
 
 	@Test
 	public void testFlipCaseInSubstring4() {
-	    fail("Not yet implemented");
+		mystring.setString("Pizza");
+		mystring.flipCaseInSubstring(0, 2);
+		String s = mystring.getString();
+		assertEquals(3,s.length());
 	}
 }

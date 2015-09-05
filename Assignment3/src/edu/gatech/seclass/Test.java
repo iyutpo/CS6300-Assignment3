@@ -7,11 +7,13 @@ public class Test {
 		
 		MyString s1 = new MyString();
 		
-		s1.setString("M");
+		s1.setString("I like vowels better than consonants");
 		
 		//s1.flipCaseInSubstring(0, 5);
-
-		System.out.println(s1.getConsonants());
+		
+	//s1.flipCaseInSubstring(0,0);
+	System.out.println(s1.numberOfConsonants());
+		
 		
 	}
 
